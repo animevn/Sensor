@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     TextView tvLight;
     @BindView(R.id.tvProximity)
     TextView tvProximity;
+
     private SensorManager sensorManager;
     private Sensor lightSensor;
     private Sensor proximitySensor;
