@@ -1,25 +1,23 @@
 package com.haanhgs.app.sensor.model;
 
-import android.hardware.Sensor;
-
 public class Sensors {
 
-    private Sensor proximity;
-    private Sensor light;
+    private float proximity = 0;
+    private float light = 0;
 
-    public void setProximity(Sensor proximity) {
-        this.proximity = proximity;
-    }
-
-    public void setLight(Sensor light) {
-        this.light = light;
-    }
-
-    public Sensor getProximity() {
+    public float getProximity() {
         return proximity;
     }
 
-    public Sensor getLight() {
+    public void setProximity(float proximity) {
+        this.proximity = proximity;
+    }
+
+    public float getLight() {
         return light;
+    }
+
+    public void setLight(float light) {
+        this.light = light;
     }
 }
