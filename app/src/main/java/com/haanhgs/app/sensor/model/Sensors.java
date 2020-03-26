@@ -2,22 +2,22 @@ package com.haanhgs.app.sensor.model;
 
 public class Sensors {
 
-    private float proximity = 0;
-    private float light = 0;
+    private Float proximity = null;
+    private Float light = null;
 
-    public float getProximity() {
+    public Float getProximity() {
         return proximity;
     }
 
-    public void setProximity(float proximity) {
+    public void setProximity(Float proximity) {
         this.proximity = proximity;
     }
 
-    public float getLight() {
+    public Float getLight() {
         return light;
     }
 
-    public void setLight(float light) {
+    public void setLight(Float light) {
         this.light = light;
     }
 }

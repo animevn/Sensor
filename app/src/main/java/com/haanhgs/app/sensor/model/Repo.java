@@ -10,18 +10,20 @@ import static android.content.Context.SENSOR_SERVICE;
 
 public class Repo implements SensorEventListener {
 
-    private MutableLiveData<Sensors> liveData = new MutableLiveData<>();
-    private Sensors sensors = new Sensors();
+    private final MutableLiveData<Sensors> liveData = new MutableLiveData<>();
+    private final Sensors sensors = new Sensors();
     private SensorManager manager;
     private Sensor proximity;
     private Sensor light;
-    private Context context;
+    private final Context context;
 
     private void initSensor(){
         manager = (SensorManager)context.getSystemService(SENSOR_SERVICE);
         if (manager != null){
             light = manager.getDefaultSensor(Sensor.TYPE_LIGHT);
             proximity = manager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+            if (light != null) sensors.setLight(0f);
+            if (proximity != null) sensors.setProximity(0f);
         }
     }
 
