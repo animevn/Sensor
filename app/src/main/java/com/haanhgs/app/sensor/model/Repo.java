@@ -41,7 +41,7 @@ public class Repo implements SensorEventListener {
             manager.registerListener(this, light, SensorManager.SENSOR_DELAY_NORMAL);
         }
         if (proximity != null){
-            manager.registerListener(this, light, SensorManager.SENSOR_DELAY_NORMAL);
+            manager.registerListener(this, proximity, SensorManager.SENSOR_DELAY_NORMAL);
         }
     }
 
