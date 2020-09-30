@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private void initViewModel(){
         viewModel = new ViewModelProvider(this).get(ViewModel.class);
 
+
     }
 
     @Override
