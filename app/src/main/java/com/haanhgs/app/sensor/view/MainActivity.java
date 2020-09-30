@@ -2,10 +2,8 @@ package com.haanhgs.app.sensor.view;
 
 import android.os.Bundle;
 import android.widget.TextView;
-
 import com.haanhgs.app.sensor.R;
 import com.haanhgs.app.sensor.viewmodel.ViewModel;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import butterknife.BindView;
@@ -25,21 +23,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        initViewModel();
     }
 
     private void initViewModel(){
         viewModel = new ViewModelProvider(this).get(ViewModel.class);
+        viewModel.getLiveData().observe(this, sensors -> {
+            Float light = sensors.getLight();
+            if (light != null){
+                tvLight.setText(getResources().getString(R.string.label_light, light));
+            }else {
+                tvLight.setText(getResources().getString(R.string.error_no_sensor));
+            }
 
+            Float proximity = sensors.getProximity();
+            if (proximity != null){
+                tvProximity.setText(getResources().getString(R.string.label_proximity, proximity));
+            }else {
+                tvProximity.setText(getResources().getString(R.string.error_no_sensor));
+            }
+        });
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        viewModel.start();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        viewModel.stop();
     }
 }
